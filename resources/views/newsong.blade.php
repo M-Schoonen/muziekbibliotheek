@@ -18,13 +18,25 @@
         @csrf
 
         <label for="title">Naam</label><br>
-        <input type="text" id="title" name="title" placeholder="Naam van de single"><br><br>
+        <input type="text" id="title" name="title" placeholder="Naam van de single" value="{{ old('title') }}"><br>
+        @error('title')
+            <div class="error">{{ $message }}</div>
+        @enderror
+        <br>
 
         <label for="artist">Auteur</label><br>
-        <input type="text" id="artist" name="artist" placeholder="Auteur"><br><br>
+        <input type="text" id="artist" name="artist" placeholder="Auteur" value="{{ old('artist') }}"><br>
+        @error('artist')
+            <div class="error">{{ $message }}</div>
+        @enderror
+        <br>
 
         <label for="year">Release jaar</label><br>
-        <input type="number" id="year" name="year" placeholder="Release jaar"><br><br>
+        <input type="number" id="year" name="year" placeholder="Release jaar" value="{{ old('year') }}"><br>
+        @error('year')
+            <div class="error">{{ $message }}</div>
+        @enderror
+        <br>
 
         <button type="submit">Verstuur</button>
     </form>
