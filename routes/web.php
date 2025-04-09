@@ -28,3 +28,6 @@ Route::get('/library', [LibraryController::class, 'show'])->name('library');
 use App\Http\Controllers\SongController;
 
 Route::get('/songs', [SongController::class, 'show'])->name('songs');
+Route::get('/songs/create', [SongController::class, 'create'])->name('songs.create');
+
+Route::post('/songs', [SongController::class, 'store'])->name('songs.store');
