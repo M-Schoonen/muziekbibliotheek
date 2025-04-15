@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Song;
 use Illuminate\Http\Request;
 
 class SongController extends Controller
@@ -24,8 +25,12 @@ class SongController extends Controller
             'year' => 'required|integer',
         ]);
 
-        echo "Titel: " . $request->input('title') . "<br>";
-        echo "Artiest: " . $request->input('artist') . "<br>";
-        echo "Jaar: " . $request->input('year') . "<br>";
+        $song = new Song();
+        $song->song_name = $request->input('title');
+        $song->author = $request->input('artist');
+        $song->release_year = $request->input('year');
+        $song->save();
+
+        return redirect()->route('songs')->with('success', 'Song added successfully!');
     }
 }
