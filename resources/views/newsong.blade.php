@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nieuwe Single Toevoegen</title>
-</head>
-<body>
-    <nav>
-        <a href="{{ route('home') }}">Home</a>
-        <a href="{{ route('library') }}">Muziekbibliotheek</a>
-        <a href="{{ route('songs') }}">Muzieknummers</a>
-    </nav>
+@extends('layouts.master')
 
+@section('content')
     <h1>Nieuwe Single Toevoegen</h1>
 
     <form method="POST" action="{{ route('songs.store') }}">
@@ -40,5 +29,4 @@
 
         <button type="submit">Verstuur</button>
     </form>
-</body>
-</html>
+@endsection
