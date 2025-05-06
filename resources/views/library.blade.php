@@ -7,7 +7,10 @@
 
     <ul>
         @foreach($songs as $song)
-            <li>{{ $song->song_name }} – {{ $song->author }} ({{ $song->release_year }})</li>
+            <li>
+                {{ $song->song_name }} – {{ $song->author }} ({{ $song->release_year }})
+                <a href="{{ route('deleteSong', ['id' => $song->id]) }}">Verwijder</a>
+            </li>
         @endforeach
     </ul>
 

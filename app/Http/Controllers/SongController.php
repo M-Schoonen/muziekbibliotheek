@@ -33,4 +33,16 @@ class SongController extends Controller
 
         return redirect()->route('songs')->with('success', 'Song added successfully!');
     }
+
+    public function delete($id)
+    {
+        $song = Song::find($id);
+
+        if ($song) {
+            $song->delete();
+            return redirect()->route('library')->with('success', 'Song deleted successfully');
+        }
+
+        return redirect()->route('library')->with('error', 'Song not found');
+    }
 }
